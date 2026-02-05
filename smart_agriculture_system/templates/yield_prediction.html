@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yield Prediction - Smart Agriculture System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>🌾 Smart Agriculture System</h1>
+                <p>AI-Powered Decision Support for Modern Farming</p>
+            </div>
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="/crop-recommendation">Crop Recommendation</a>
+                <a href="/yield-prediction" class="active">Yield Prediction</a>
+                <a href="/weather-advisory">Weather Advisory</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Introduction -->
+        <div class="card">
+            <h2>📊 Crop Yield Prediction</h2>
+            <p>
+                Predict your expected crop yield based on cultivation parameters, environmental 
+                conditions, and agricultural inputs. This helps you plan resources, estimate 
+                production, and make informed farming decisions.
+            </p>
+        </div>
+
+        <!-- Input Form -->
+        <div class="card">
+            <h2>Enter Cultivation Parameters</h2>
+            <form id="yield-form" onsubmit="handleYieldPrediction(event)">
+                <!-- Location & Crop -->
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Location & Crop Information</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <select id="state" name="state" required>
+                            <option value="">Select State</option>
+                            {% for state in states %}
+                            <option value="{{ state }}">{{ state }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="crop">Crop Type</label>
+                        <select id="crop" name="crop" required>
+                            <option value="">Select Crop</option>
+                            {% for crop in crops %}
+                            <option value="{{ crop }}">{{ crop }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Cultivation Area -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="area">Cultivation Area - hectares</label>
+                        <input type="number" id="area" name="area" 
+                               min="0.1" max="10000" step="0.1" required
+                               placeholder="e.g., 1200">
+                        <small style="color: #666;">Total area under cultivation</small>
+                    </div>
+                </div>
+
+                <!-- Environmental & Agricultural Inputs -->
+                <h3 style="color: var(--primary-color); margin: 2rem 0 1rem;">Environmental & Input Parameters</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="rainfall-yield">Annual Rainfall - mm</label>
+                        <input type="number" id="rainfall-yield" name="rainfall" 
+                               min="0" max="5000" step="0.1" required
+                               placeholder="e.g., 1150">
+                        <small style="color: #666;">Total annual rainfall</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="fertilizer">Fertilizer - kg/ha</label>
+                        <input type="number" id="fertilizer" name="fertilizer" 
+                               min="0" max="500" step="0.1" required
+                               placeholder="e.g., 120">
+                        <small style="color: #666;">Fertilizer application rate</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="pesticide">Pesticide - kg/ha</label>
+                        <input type="number" id="pesticide" name="pesticide" 
+                               min="0" max="100" step="0.1" required
+                               placeholder="e.g., 15">
+                        <small style="color: #666;">Pesticide application rate</small>
+                    </div>
+                </div>
+
+                <!-- Submit Buttons -->
+                <div class="form-row" style="margin-top: 2rem;">
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Predict Yield
+                    </button>
+                    <button type="button" class="btn btn-secondary btn-block" 
+                            onclick="resetForm('yield-form')">
+                        Reset Form
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading-yield" class="loading">
+            <div class="spinner"></div>
+            <p style="margin-top: 1rem;">Calculating yield prediction...</p>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results-yield" class="results">
+            <!-- Yield Prediction -->
+            <div class="result-header">
+                <h3>Yield Prediction Results</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+                    <div>
+                        <p style="font-size: 1rem; opacity: 0.9;">Yield per Hectare</p>
+                        <div style="font-size: 2.5rem; font-weight: bold; margin-top: 0.5rem;">
+                            <span id="predicted-yield">-</span>
+                        </div>
+                    </div>
+                    <div>
+                        <p style="font-size: 1rem; opacity: 0.9;">Total Production</p>
+                        <div style="font-size: 2.5rem; font-weight: bold; margin-top: 0.5rem;">
+                            <span id="total-production">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Parameters Summary -->
+            <div class="result-content">
+                <h3 style="margin-bottom: 1rem;">Your Input Parameters</h3>
+                <div id="input-parameters-yield" class="result-grid">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+
+            <!-- Yield Improvement Advice -->
+            <div class="result-content">
+                <h3 style="margin-bottom: 1rem;">Recommendations for Better Yield</h3>
+                <ul id="advice-yield" class="advice-list">
+                    <!-- Dynamically populated -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Information Card -->
+        <div class="card mt-2">
+            <h3>💡 Understanding Yield Predictions</h3>
+            <ul class="advice-list">
+                <li><strong>Yield per Hectare:</strong> The expected production per unit area, measured in tons per hectare.</li>
+                <li><strong>Total Production:</strong> The estimated total output based on your cultivation area.</li>
+                <li><strong>Factors Affecting Yield:</strong> Weather conditions, soil quality, seed quality, pest management, and farming practices all impact final yield.</li>
+                <li><strong>Accuracy:</strong> Predictions are based on historical data and statistical models. Actual yields may vary based on seasonal conditions.</li>
+                <li><strong>Planning:</strong> Use these predictions for resource planning, market estimation, and financial forecasting.</li>
+            </ul>
+        </div>
+
+        <!-- Crop-specific Tips -->
+        <div class="card">
+            <h3>🌾 Quick Tips for Major Crops</h3>
+            <div class="result-grid">
+                <div class="result-item">
+                    <strong>Rice</strong>
+                    <p>Requires waterlogged conditions. Ensure proper water management and timely transplanting.</p>
+                </div>
+                <div class="result-item">
+                    <strong>Wheat</strong>
+                    <p>Needs well-drained soil. Avoid water stagnation and ensure timely irrigation.</p>
+                </div>
+                <div class="result-item">
+                    <strong>Maize</strong>
+                    <p>Requires moderate irrigation. Ensure adequate spacing for proper growth.</p>
+                </div>
+                <div class="result-item">
+                    <strong>Cotton</strong>
+                    <p>Needs warm climate. Control pests effectively for better yield.</p>
+                </div>
+                <div class="result-item">
+                    <strong>Sugarcane</strong>
+                    <p>Requires high water and fertilizer inputs. Plant disease-resistant varieties.</p>
+                </div>
+                <div class="result-item">
+                    <strong>Pulses</strong>
+                    <p>Fix nitrogen in soil. Good for crop rotation and soil health.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Smart Agriculture Decision Support System. Built with AI & ML.</p>
+        <p>Empowering farmers through technology</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Agriculture Decision Support System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>🌾 Smart Agriculture System</h1>
+                <p>AI-Powered Decision Support for Modern Farming</p>
+            </div>
+            <nav class="nav">
+                <a href="/" class="active">Home</a>
+                <a href="/crop-recommendation">Crop Recommendation</a>
+                <a href="/yield-prediction">Yield Prediction</a>
+                <a href="/weather-advisory">Weather Advisory</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Welcome Section -->
+        <div class="card">
+            <h2>Welcome to Smart Agriculture Decision Support System</h2>
+            <p>
+                Harness the power of Artificial Intelligence and Machine Learning to make informed 
+                agricultural decisions. Our system provides data-driven insights for crop selection, 
+                yield prediction, and weather-based farming advisories.
+            </p>
+            <p>
+                Whether you're a small-scale farmer or managing large agricultural operations, 
+                our AI-powered tools help you maximize productivity while optimizing resource usage.
+            </p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="features-grid">
+            <!-- Feature 1: Crop Recommendation -->
+            <div class="feature-card">
+                <div class="feature-icon">🌱</div>
+                <h3>Crop Recommendation</h3>
+                <p>
+                    Get AI-powered crop suggestions based on your soil composition (NPK levels, pH), 
+                    climate conditions (temperature, humidity), and rainfall patterns.
+                </p>
+                <a href="/crop-recommendation" class="btn btn-primary">Get Started</a>
+            </div>
+
+            <!-- Feature 2: Yield Prediction -->
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Yield Prediction</h3>
+                <p>
+                    Predict your crop yield based on location, crop type, cultivation area, 
+                    rainfall, and fertilizer usage. Plan your resources effectively.
+                </p>
+                <a href="/yield-prediction" class="btn btn-primary">Predict Yield</a>
+            </div>
+
+            <!-- Feature 3: Weather Advisory -->
+            <div class="feature-card">
+                <div class="feature-icon">🌤️</div>
+                <h3>Weather Advisory</h3>
+                <p>
+                    Get real-time weather information and personalized farming advisories 
+                    for irrigation, fertilization, and crop protection activities.
+                </p>
+                <a href="/weather-advisory" class="btn btn-primary">Check Weather</a>
+            </div>
+        </div>
+
+        <!-- How It Works Section -->
+        <div class="card mt-2">
+            <h2>How It Works</h2>
+            <div class="result-grid">
+                <div class="result-item">
+                    <strong>1. Input Your Data</strong>
+                    <p>Enter soil parameters, climate data, or location information</p>
+                </div>
+                <div class="result-item">
+                    <strong>2. AI Analysis</strong>
+                    <p>Our trained ML models analyze your data using advanced algorithms</p>
+                </div>
+                <div class="result-item">
+                    <strong>3. Get Recommendations</strong>
+                    <p>Receive actionable insights and data-driven recommendations</p>
+                </div>
+                <div class="result-item">
+                    <strong>4. Make Decisions</strong>
+                    <p>Implement suggestions to optimize your farming operations</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Technology Stack -->
+        <div class="card">
+            <h2>Powered By Advanced Technology</h2>
+            <div class="result-grid">
+                <div class="result-item">
+                    <strong>🤖 Machine Learning</strong>
+                    <p>Random Forest algorithms for accurate predictions</p>
+                </div>
+                <div class="result-item">
+                    <strong>📊 Data Science</strong>
+                    <p>Python, Pandas, NumPy, Scikit-learn</p>
+                </div>
+                <div class="result-item">
+                    <strong>🌐 Web Technology</strong>
+                    <p>Flask backend with modern responsive frontend</p>
+                </div>
+                <div class="result-item">
+                    <strong>☁️ Real-time Data</strong>
+                    <p>Weather API integration for current conditions</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Benefits Section -->
+        <div class="card">
+            <h2>Key Benefits</h2>
+            <ul class="advice-list">
+                <li>✅ Make data-driven decisions based on scientific analysis</li>
+                <li>✅ Increase crop yield through optimized resource allocation</li>
+                <li>✅ Reduce costs by selecting the right crops for your conditions</li>
+                <li>✅ Minimize risks with weather-based advisories</li>
+                <li>✅ Improve sustainability through efficient farming practices</li>
+                <li>✅ Access expert-level insights without hiring consultants</li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Smart Agriculture Decision Support System. Built with AI & ML.</p>
+        <p>Empowering farmers through technology</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

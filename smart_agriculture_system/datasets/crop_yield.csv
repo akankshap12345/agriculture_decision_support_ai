@@ -1,0 +1,114 @@
+State,Crop,Area,Production,Annual_Rainfall,Fertilizer,Pesticide,Yield
+Maharashtra,Rice,1200,3600,1150,120,15,3.0
+Karnataka,Rice,1000,3200,1050,110,12,3.2
+Tamil Nadu,Rice,1500,5100,1200,130,18,3.4
+Andhra Pradesh,Rice,1300,4160,1100,125,16,3.2
+West Bengal,Rice,1800,6300,1400,140,20,3.5
+Punjab,Rice,900,3150,900,100,10,3.5
+Haryana,Rice,800,2720,850,95,9,3.4
+Uttar Pradesh,Rice,2000,6800,1000,135,17,3.4
+Bihar,Rice,1600,5280,1300,130,15,3.3
+Odisha,Rice,1400,4480,1250,120,14,3.2
+Maharashtra,Wheat,1100,2860,600,115,11,2.6
+Punjab,Wheat,1500,4950,550,140,13,3.3
+Haryana,Wheat,1300,4290,500,130,12,3.3
+Uttar Pradesh,Wheat,1800,5400,650,145,14,3.0
+Madhya Pradesh,Wheat,1200,3360,580,125,10,2.8
+Rajasthan,Wheat,1000,2500,450,110,9,2.5
+Gujarat,Wheat,900,2430,520,105,8,2.7
+Bihar,Wheat,1100,2970,600,120,11,2.7
+Maharashtra,Maize,800,2080,800,90,10,2.6
+Karnataka,Maize,750,2100,750,85,9,2.8
+Andhra Pradesh,Maize,850,2380,820,95,11,2.8
+Bihar,Maize,900,2520,780,100,12,2.8
+Uttar Pradesh,Maize,950,2660,850,105,13,2.8
+Madhya Pradesh,Maize,700,1890,720,80,8,2.7
+Rajasthan,Maize,650,1690,680,75,7,2.6
+Tamil Nadu,Maize,600,1680,700,70,8,2.8
+Maharashtra,Cotton,1200,1440,650,130,20,1.2
+Gujarat,Cotton,1500,1950,600,145,25,1.3
+Andhra Pradesh,Cotton,1100,1430,620,125,22,1.3
+Karnataka,Cotton,1000,1200,580,120,18,1.2
+Haryana,Cotton,900,1170,550,115,17,1.3
+Punjab,Cotton,850,1105,530,110,16,1.3
+Madhya Pradesh,Cotton,950,1140,590,118,19,1.2
+Rajasthan,Cotton,800,960,500,105,15,1.2
+Maharashtra,Sugarcane,500,36000,1100,200,30,72.0
+Uttar Pradesh,Sugarcane,550,40700,1050,210,32,74.0
+Karnataka,Sugarcane,480,34560,1080,195,28,72.0
+Tamil Nadu,Sugarcane,520,39520,1150,205,31,76.0
+Andhra Pradesh,Sugarcane,490,36750,1120,198,29,75.0
+Gujarat,Sugarcane,460,32200,1020,190,27,70.0
+Bihar,Sugarcane,510,35700,1090,200,30,70.0
+Haryana,Sugarcane,470,33840,1000,192,28,72.0
+Maharashtra,Groundnut,900,1170,700,95,12,1.3
+Gujarat,Groundnut,1000,1400,680,105,14,1.4
+Andhra Pradesh,Groundnut,950,1330,720,100,13,1.4
+Tamil Nadu,Groundnut,920,1288,710,98,12,1.4
+Karnataka,Groundnut,880,1232,690,92,11,1.4
+Rajasthan,Groundnut,850,1105,650,90,10,1.3
+Madhya Pradesh,Groundnut,870,1131,670,93,11,1.3
+Uttar Pradesh,Groundnut,910,1183,700,96,12,1.3
+Maharashtra,Soybean,1100,1980,850,120,15,1.8
+Madhya Pradesh,Soybean,1300,2470,900,135,18,1.9
+Rajasthan,Soybean,1000,1800,800,115,14,1.8
+Karnataka,Soybean,950,1710,820,110,13,1.8
+Andhra Pradesh,Soybean,1050,1995,870,118,16,1.9
+Gujarat,Soybean,980,1862,830,112,15,1.9
+Maharashtra,Chickpea,1000,1300,500,105,10,1.3
+Madhya Pradesh,Chickpea,1150,1610,520,118,12,1.4
+Rajasthan,Chickpea,950,1235,480,100,9,1.3
+Karnataka,Chickpea,900,1170,510,98,10,1.3
+Andhra Pradesh,Chickpea,980,1274,530,103,11,1.3
+Uttar Pradesh,Chickpea,1020,1326,550,108,11,1.3
+Gujarat,Chickpea,930,1209,490,96,9,1.3
+Maharashtra,Pigeon Pea,850,1020,750,90,11,1.2
+Karnataka,Pigeon Pea,900,1170,780,95,12,1.3
+Madhya Pradesh,Pigeon Pea,880,1144,760,92,11,1.3
+Andhra Pradesh,Pigeon Pea,920,1196,790,97,13,1.3
+Uttar Pradesh,Pigeon Pea,870,1131,770,93,12,1.3
+Gujarat,Pigeon Pea,860,1118,740,91,10,1.3
+Tamil Nadu,Pigeon Pea,840,1092,730,89,11,1.3
+Maharashtra,Banana,200,8000,1200,180,22,40.0
+Tamil Nadu,Banana,220,9240,1250,190,24,42.0
+Karnataka,Banana,210,8820,1220,185,23,42.0
+Andhra Pradesh,Banana,215,9030,1230,187,23,42.0
+Gujarat,Banana,195,7800,1180,175,21,40.0
+West Bengal,Banana,205,8610,1210,182,22,42.0
+Kerala,Banana,225,9450,1300,192,25,42.0
+Maharashtra,Mango,300,3600,900,150,18,12.0
+Andhra Pradesh,Mango,320,4160,920,155,19,13.0
+Uttar Pradesh,Mango,310,3875,910,152,18,12.5
+Karnataka,Mango,305,3782,905,151,18,12.4
+Gujarat,Mango,295,3540,890,148,17,12.0
+Bihar,Mango,315,4095,915,154,19,13.0
+Tamil Nadu,Mango,308,3850,908,153,18,12.5
+Maharashtra,Grapes,180,2700,650,165,20,15.0
+Karnataka,Grapes,190,3040,670,170,21,16.0
+Andhra Pradesh,Grapes,185,2960,660,168,20,16.0
+Tamil Nadu,Grapes,175,2800,640,163,19,16.0
+Punjab,Grapes,195,3120,680,172,22,16.0
+Maharashtra,Orange,250,3750,800,155,17,15.0
+Punjab,Orange,260,4160,820,160,18,16.0
+Haryana,Orange,255,4080,810,158,17,16.0
+Madhya Pradesh,Orange,248,3720,795,153,16,15.0
+Rajasthan,Orange,245,3675,790,152,16,15.0
+Maharashtra,Potato,400,8000,600,140,16,20.0
+Uttar Pradesh,Potato,420,8820,620,145,17,21.0
+West Bengal,Potato,410,8610,610,142,16,21.0
+Bihar,Potato,415,8715,615,144,17,21.0
+Punjab,Potato,405,8505,608,141,16,21.0
+Gujarat,Potato,395,7900,595,138,15,20.0
+Madhya Pradesh,Potato,408,8568,612,143,16,21.0
+Maharashtra,Tomato,180,3240,550,125,14,18.0
+Karnataka,Tomato,190,3610,570,130,15,19.0
+Andhra Pradesh,Tomato,185,3515,560,128,14,19.0
+Tamil Nadu,Tomato,195,3705,575,132,15,19.0
+Gujarat,Tomato,175,3150,545,123,13,18.0
+Madhya Pradesh,Tomato,188,3572,565,129,14,19.0
+Maharashtra,Onion,350,5250,500,135,13,15.0
+Karnataka,Onion,360,5760,520,140,14,16.0
+Andhra Pradesh,Onion,355,5680,510,138,13,16.0
+Madhya Pradesh,Onion,352,5632,515,136,13,16.0
+Gujarat,Onion,345,5175,495,133,12,15.0
+Rajasthan,Onion,348,5568,505,134,13,16.0

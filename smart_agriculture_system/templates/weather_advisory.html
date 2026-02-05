@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Advisory - Smart Agriculture System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <h1>🌾 Smart Agriculture System</h1>
+                <p>AI-Powered Decision Support for Modern Farming</p>
+            </div>
+            <nav class="nav">
+                <a href="/">Home</a>
+                <a href="/crop-recommendation">Crop Recommendation</a>
+                <a href="/yield-prediction">Yield Prediction</a>
+                <a href="/weather-advisory" class="active">Weather Advisory</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Introduction -->
+        <div class="card">
+            <h2>🌤️ Weather-Based Agricultural Advisory</h2>
+            <p>
+                Get real-time weather information and personalized farming recommendations based 
+                on current weather conditions. Our system provides actionable advice for irrigation, 
+                fertilization, pest management, and other farming activities.
+            </p>
+        </div>
+
+        <!-- Input Form -->
+        <div class="card">
+            <h2>Enter Your Location</h2>
+            <form id="weather-form" onsubmit="handleWeatherAdvisory(event)">
+                <div class="form-group">
+                    <label for="city">City or Location</label>
+                    <input type="text" id="city" name="city" required
+                           placeholder="e.g., Mumbai, Delhi, Bangalore"
+                           value="Mumbai">
+                    <small style="color: #666;">Enter your city or region name</small>
+                </div>
+
+                <div class="form-row" style="margin-top: 2rem;">
+                    <button type="submit" class="btn btn-primary btn-block">
+                        Get Weather Advisory
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loading-weather" class="loading">
+            <div class="spinner"></div>
+            <p style="margin-top: 1rem;">Fetching weather data...</p>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results-weather" class="results">
+            <!-- Weather Card -->
+            <div class="weather-card">
+                <h3 id="weather-city" style="font-size: 2rem; margin-bottom: 1rem;">-</h3>
+                <div id="weather-desc" style="font-size: 1.2rem; opacity: 0.9;">-</div>
+                <div id="weather-temp" class="weather-temp">-</div>
+                
+                <div class="weather-info">
+                    <div class="weather-info-item">
+                        <div style="font-size: 2rem;">💧</div>
+                        <div style="margin-top: 0.5rem;">
+                            <strong>Humidity</strong>
+                            <div id="weather-humidity" style="font-size: 1.5rem;">-</div>
+                        </div>
+                    </div>
+                    <div class="weather-info-item">
+                        <div style="font-size: 2rem;">🌧️</div>
+                        <div style="margin-top: 0.5rem;">
+                            <strong>Rainfall</strong>
+                            <div id="weather-rainfall" style="font-size: 1.5rem;">-</div>
+                        </div>
+                    </div>
+                    <div class="weather-info-item">
+                        <div style="font-size: 2rem;">💨</div>
+                        <div style="margin-top: 0.5rem;">
+                            <strong>Wind Speed</strong>
+                            <div id="weather-wind" style="font-size: 1.5rem;">-</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 1.5rem; opacity: 0.8;">
+                    Last Updated: <span id="weather-time">-</span>
+                </div>
+            </div>
+
+            <!-- Agricultural Advisory -->
+            <div class="result-content">
+                <h3 style="margin-bottom: 1rem;">Agricultural Advisory</h3>
+                <div id="advisory" class="advisory-list">
+                    <!-- Dynamically populated -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Information Cards -->
+        <div class="card mt-2">
+            <h3>💡 Weather-Based Farming Guidelines</h3>
+            <div class="result-grid">
+                <div class="result-item">
+                    <strong>☀️ Sunny & Hot (>35°C)</strong>
+                    <p>Increase irrigation frequency. Provide shade for sensitive crops. Avoid pesticide application during peak hours.</p>
+                </div>
+                <div class="result-item">
+                    <strong>🌧️ Rainy Days</strong>
+                    <p>Postpone irrigation and fertilizer application. Check drainage systems. Monitor for fungal diseases.</p>
+                </div>
+                <div class="result-item">
+                    <strong>❄️ Cold Weather (<15°C)</strong>
+                    <p>Protect crops from frost. Reduce irrigation. Use mulching to maintain soil temperature.</p>
+                </div>
+                <div class="result-item">
+                    <strong>💨 Windy Conditions</strong>
+                    <p>Secure support structures. Delay pesticide spraying. Check for physical crop damage.</p>
+                </div>
+                <div class="result-item">
+                    <strong>💧 High Humidity (>85%)</strong>
+                    <p>Monitor for fungal diseases. Improve air circulation. Consider fungicide application if needed.</p>
+                </div>
+                <div class="result-item">
+                    <strong>🌤️ Ideal Conditions</strong>
+                    <p>Good for field operations. Suitable for planting and harvesting. Optimal for pesticide application.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seasonal Advisory -->
+        <div class="card">
+            <h3>🌾 Seasonal Farming Calendar</h3>
+            <ul class="advice-list">
+                <li><strong>Kharif Season (June-October):</strong> Monsoon crops like rice, maize, cotton, soybean. Focus on water management and pest control.</li>
+                <li><strong>Rabi Season (November-March):</strong> Winter crops like wheat, barley, peas, mustard. Ensure timely irrigation and frost protection.</li>
+                <li><strong>Zaid Season (March-June):</strong> Summer crops like watermelon, cucumber, vegetables. Maintain adequate irrigation.</li>
+                <li><strong>Year-Round:</strong> Fruits like banana, papaya can be grown throughout the year with proper care.</li>
+            </ul>
+        </div>
+
+        <!-- Emergency Contacts -->
+        <div class="card">
+            <h3>📞 Important Agricultural Resources</h3>
+            <div class="result-grid">
+                <div class="result-item">
+                    <strong>Kisan Call Center</strong>
+                    <p>Toll-Free: 1800-180-1551</p>
+                </div>
+                <div class="result-item">
+                    <strong>Agriculture Department</strong>
+                    <p>Contact local agricultural office</p>
+                </div>
+                <div class="result-item">
+                    <strong>Weather Warnings</strong>
+                    <p>IMD: www.imd.gov.in</p>
+                </div>
+                <div class="result-item">
+                    <strong>Crop Insurance</strong>
+                    <p>PMFBY: pmfby.gov.in</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Best Practices -->
+        <div class="card">
+            <h3>✅ Weather Monitoring Best Practices</h3>
+            <ul class="advice-list">
+                <li>Check weather forecast daily, especially during critical crop growth stages</li>
+                <li>Maintain a weather diary to track patterns and plan future activities</li>
+                <li>Install rain gauge and thermometer for accurate local measurements</li>
+                <li>Subscribe to weather alerts and warnings from meteorological department</li>
+                <li>Plan field activities based on 3-5 day weather forecast</li>
+                <li>Keep contingency plans for extreme weather events</li>
+                <li>Coordinate with neighboring farmers for weather information sharing</li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Smart Agriculture Decision Support System. Built with AI & ML.</p>
+        <p>Empowering farmers through technology</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
